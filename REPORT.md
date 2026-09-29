@@ -50,6 +50,8 @@ Hello from feature branch!
 
 两张截图对应的原始命令输出保存在 `evidence/commands-20260926.json`。课程模板中的 `.github` 自动评分文件没有修改。
 
+补充说明：两张截图记录的是我在本地实际做实验时的状态和提交号。个人 GitHub 仓库是在模板仓库上按相同文件内容和父子关系重新建立的，因此线上 commit hash 会和截图不同。原始完整 Git 历史保存在 `evidence/ics-lab0.bundle`，截图中的提交号应以这个 bundle 为准。
+
 ## 参考
 
 - [Commit message 和 Change log 编写指南](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
