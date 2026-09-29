@@ -2,6 +2,6 @@
 
 int main(void)
 {
-    printf("Version control makes small changes traceable.\n");
+    printf("Main branch: keep a stable integration point.\n");
     return 0;
 }
