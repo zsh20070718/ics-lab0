@@ -2,6 +2,6 @@
 
 int main(void)
 {
-    printf("Version control makes small changes traceable.\n");
+    printf("Feature branch: practice isolated development.\n");
     return 0;
 }
