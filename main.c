@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int main()
+int main(void)
 {
-    // @TODO: print a sentence you want.
-    printf("Hello, world!\n");
+    printf("Version control makes small changes traceable.\n");
+    return 0;
 }
