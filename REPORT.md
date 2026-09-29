@@ -30,7 +30,25 @@ Git 对我最有用的是能保留清楚的修改记录，出问题时知道哪�
 
 ## 实验过程
 
-【代码与历史已经恢复，等待个人模板仓库地址后完成远端对齐、实际操作截图和提交核验。】
+1. 修改了模板里的 `main.c`，完成打印字符串的 TODO 并提交。
+2. 新建 `feature` 分支，把第一条输出改为 `Hello from feature branch!`，提交后切回 `main`。
+3. 在 `main` 上把同一行改为 `Hello from main branch!`，再提交。两条分支修改了共同祖先中的同一行，而且内容不同，所以合并时 Git 无法自动决定保留哪一条。
+4. 执行 `git merge feature`，出现 `CONFLICT (content)`。此时 `git status --short` 显示 `UU main.c`，文件中也出现了冲突标记。下面是本次实际命令输出的截图：
+
+![合并冲突](evidence/01-conflict.png)
+
+5. 删除冲突标记，保留两个分支的问候语，各输出一行。然后执行 `git add main.c` 和 `git commit` 完成合并。日志中的合并提交有两个父提交；代码已不再处于冲突状态。截图里的未跟踪文件是另外保存的冲突文本记录。
+
+![冲突解决](evidence/02-resolved.png)
+
+6. 用 GCC 的 C11 模式加 `-Wall -Wextra -Werror` 编译，编译、运行都成功。最终输出为：
+
+```text
+Hello from main branch!
+Hello from feature branch!
+```
+
+两张截图对应的原始命令输出保存在 `evidence/commands-20260926.json`。课程模板中的 `.github` 自动评分文件没有修改。
 
 ## 参考
 

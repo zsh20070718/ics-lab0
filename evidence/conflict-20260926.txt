@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(void)
+{
+<<<<<<< HEAD
+    printf("Hello from main branch!\n");
+=======
+    printf("Hello from feature branch!\n");
+>>>>>>> feature
+    printf("Feature branch: practice isolated development.\n");
+    return 0;
+}

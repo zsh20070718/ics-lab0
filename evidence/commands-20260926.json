@@ -1,0 +1,116 @@
+[
+  {
+    "command": "git branch --show-current",
+    "exit": 0,
+    "stdout": "main\n",
+    "stderr": ""
+  },
+  {
+    "command": "git branch --list feature",
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git add REPORT.md",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'REPORT.md', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  {
+    "command": "git commit -m docs: draft lab questions and reading notes",
+    "exit": 0,
+    "stdout": "[main 47e9b58] docs: draft lab questions and reading notes\n 1 file changed, 19 insertions(+), 78 deletions(-)\n",
+    "stderr": ""
+  },
+  {
+    "command": "git switch -c feature",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "Switched to a new branch 'feature'\n"
+  },
+  {
+    "command": "git add main.c",
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git commit -m feat: update greeting on feature",
+    "exit": 0,
+    "stdout": "[feature 2009378] feat: update greeting on feature\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+    "stderr": ""
+  },
+  {
+    "command": "git switch main",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "Switched to branch 'main'\n"
+  },
+  {
+    "command": "git add main.c",
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git commit -m feat: update greeting on main",
+    "exit": 0,
+    "stdout": "[main 069e8d7] feat: update greeting on main\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+    "stderr": ""
+  },
+  {
+    "command": "git merge feature",
+    "exit": 1,
+    "stdout": "Auto-merging main.c\nCONFLICT (content): Merge conflict in main.c\nAutomatic merge failed; fix conflicts and then commit the result.\n",
+    "stderr": ""
+  },
+  {
+    "command": "git status --short",
+    "exit": 0,
+    "stdout": "UU main.c\n",
+    "stderr": ""
+  },
+  {
+    "command": "git diff --cc main.c",
+    "exit": 0,
+    "stdout": "diff --cc main.c\nindex 8a8b30c,7c7de8e..0000000\n--- a/main.c\n+++ b/main.c\n@@@ -2,7 -2,7 +2,11 @@@\n  \n  int main(void)\n  {\n++<<<<<<< HEAD\n +    printf(\"Hello from main branch!\\n\");\n++=======\n+     printf(\"Hello from feature branch!\\n\");\n++>>>>>>> feature\n      printf(\"Feature branch: practice isolated development.\\n\");\n      return 0;\n  }\n",
+    "stderr": ""
+  },
+  {
+    "command": "git add main.c",
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git commit -m merge: retain greetings from both branches",
+    "exit": 0,
+    "stdout": "[main 44ee626] merge: retain greetings from both branches\n",
+    "stderr": ""
+  },
+  {
+    "command": "git log --graph --oneline --all -8",
+    "exit": 0,
+    "stdout": "*   44ee626 merge: retain greetings from both branches\n|\\  \n| * 2009378 feat: update greeting on feature\n* | 069e8d7 feat: update greeting on main\n|/  \n* 47e9b58 docs: draft lab questions and reading notes\n* 7e79570 docs: record verified Git exercise and remaining submission inputs\n*   9a85ac3 merge: preserve both greetings and resolve the conflict\n|\\  \n| * 48a54b6 feat: describe isolated development on feature\n* | 766ef04 feat: describe stable integration on main\n|/  \n",
+    "stderr": ""
+  },
+  {
+    "command": "git status --short",
+    "exit": 0,
+    "stdout": "?? evidence/conflict-20260926.txt\n",
+    "stderr": ""
+  },
+  {
+    "command": "git rev-list --parents -n 1 HEAD",
+    "exit": 0,
+    "stdout": "44ee6267fae162cbfc0e108b6371d8f9748d05d5 069e8d7310b3b00e93fcc1ea462b97a47b7aacb8 2009378698c36cad75b1d015a74cbe3947c7832f\n",
+    "stderr": ""
+  },
+  {
+    "command": "git diff f67e08038bd4593a0deabc625ec3ab6647935d0f HEAD -- .github",
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]
