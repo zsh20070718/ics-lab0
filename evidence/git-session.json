@@ -1,0 +1,140 @@
+[
+  {
+    "command": "git status --porcelain",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git status --porcelain",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git rev-parse HEAD",
+    "returncode": 0,
+    "stdout": "f67e08038bd4593a0deabc625ec3ab6647935d0f\n",
+    "stderr": ""
+  },
+  {
+    "command": "git add main.c",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git commit -m feat: complete the introductory Git lab greeting",
+    "returncode": 0,
+    "stdout": "[main a74535b] feat: complete the introductory Git lab greeting\n 1 file changed, 4 insertions(+), 4 deletions(-)\n",
+    "stderr": ""
+  },
+  {
+    "command": "git switch -c feature",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "Switched to a new branch 'feature'\n"
+  },
+  {
+    "command": "git add main.c",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git commit -m feat: describe isolated development on feature",
+    "returncode": 0,
+    "stdout": "[feature 48a54b6] feat: describe isolated development on feature\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+    "stderr": ""
+  },
+  {
+    "command": "git rev-parse HEAD",
+    "returncode": 0,
+    "stdout": "48a54b64a4310d4aea80a3d75e1189bb931f630a\n",
+    "stderr": ""
+  },
+  {
+    "command": "git switch main",
+    "returncode": 0,
+    "stdout": "Your branch is ahead of 'origin/main' by 1 commit.\n  (use \"git push\" to publish your local commits)\n",
+    "stderr": "Switched to branch 'main'\n"
+  },
+  {
+    "command": "git add main.c",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git commit -m feat: describe stable integration on main",
+    "returncode": 0,
+    "stdout": "[main 766ef04] feat: describe stable integration on main\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+    "stderr": ""
+  },
+  {
+    "command": "git rev-parse HEAD",
+    "returncode": 0,
+    "stdout": "766ef04730de91f3e5923437c4160db020297101\n",
+    "stderr": ""
+  },
+  {
+    "command": "git merge feature",
+    "returncode": 1,
+    "stdout": "Auto-merging main.c\nCONFLICT (content): Merge conflict in main.c\nAutomatic merge failed; fix conflicts and then commit the result.\n",
+    "stderr": ""
+  },
+  {
+    "command": "git status --short",
+    "returncode": 0,
+    "stdout": "UU main.c\n?? evidence/\n",
+    "stderr": ""
+  },
+  {
+    "command": "git diff -- main.c",
+    "returncode": 0,
+    "stdout": "diff --cc main.c\nindex 08591eb,24470e7..0000000\n--- a/main.c\n+++ b/main.c\n@@@ -2,6 -2,6 +2,10 @@@\n  \n  int main(void)\n  {\n++<<<<<<< HEAD\n +    printf(\"Main branch: keep a stable integration point.\\n\");\n++=======\n+     printf(\"Feature branch: practice isolated development.\\n\");\n++>>>>>>> feature\n      return 0;\n  }\n",
+    "stderr": ""
+  },
+  {
+    "command": "git add main.c",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git commit -m merge: preserve both greetings and resolve the conflict",
+    "returncode": 0,
+    "stdout": "[main 9a85ac3] merge: preserve both greetings and resolve the conflict\n",
+    "stderr": ""
+  },
+  {
+    "command": "git rev-parse HEAD",
+    "returncode": 0,
+    "stdout": "9a85ac38064adbbd3c632099b13ece63cbe08242\n",
+    "stderr": ""
+  },
+  {
+    "command": "git rev-list --parents -n 1 HEAD",
+    "returncode": 0,
+    "stdout": "9a85ac38064adbbd3c632099b13ece63cbe08242 766ef04730de91f3e5923437c4160db020297101 48a54b64a4310d4aea80a3d75e1189bb931f630a\n",
+    "stderr": ""
+  },
+  {
+    "command": "git ls-files -u",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git log --graph --oneline --all -n 8",
+    "returncode": 0,
+    "stdout": "*   9a85ac3 merge: preserve both greetings and resolve the conflict\n|\\  \n| * 48a54b6 feat: describe isolated development on feature\n* | 766ef04 feat: describe stable integration on main\n|/  \n* a74535b feat: complete the introductory Git lab greeting\n* f67e080 feat(): add autograding; doc(): add README.md\n* 5b71eff Initial commit\n",
+    "stderr": ""
+  },
+  {
+    "command": "gcc -std=c11 -Wall -Wextra -Werror main.c -o <task>/tmp/lab0-main.exe; run executable",
+    "returncode": 0,
+    "stdout": "Main branch: keep a stable integration point.\nFeature branch: practice isolated development.\n",
+    "stderr": ""
+  }
+]

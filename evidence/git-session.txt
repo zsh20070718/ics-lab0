@@ -1,0 +1,91 @@
+$ git status --porcelain
+
+$ git status --porcelain
+
+$ git rev-parse HEAD
+f67e08038bd4593a0deabc625ec3ab6647935d0f
+
+$ git add main.c
+
+$ git commit -m feat: complete the introductory Git lab greeting
+[main a74535b] feat: complete the introductory Git lab greeting
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+$ git switch -c feature
+Switched to a new branch 'feature'
+
+$ git add main.c
+
+$ git commit -m feat: describe isolated development on feature
+[feature 48a54b6] feat: describe isolated development on feature
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git rev-parse HEAD
+48a54b64a4310d4aea80a3d75e1189bb931f630a
+
+$ git switch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+Switched to branch 'main'
+
+$ git add main.c
+
+$ git commit -m feat: describe stable integration on main
+[main 766ef04] feat: describe stable integration on main
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git rev-parse HEAD
+766ef04730de91f3e5923437c4160db020297101
+
+$ git merge feature
+Auto-merging main.c
+CONFLICT (content): Merge conflict in main.c
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ git status --short
+UU main.c
+?? evidence/
+
+$ git diff -- main.c
+diff --cc main.c
+index 08591eb,24470e7..0000000
+--- a/main.c
++++ b/main.c
+@@@ -2,6 -2,6 +2,10 @@@
+  
+  int main(void)
+  {
+++<<<<<<< HEAD
+ +    printf("Main branch: keep a stable integration point.\n");
+++=======
++     printf("Feature branch: practice isolated development.\n");
+++>>>>>>> feature
+      return 0;
+  }
+
+$ git add main.c
+
+$ git commit -m merge: preserve both greetings and resolve the conflict
+[main 9a85ac3] merge: preserve both greetings and resolve the conflict
+
+$ git rev-parse HEAD
+9a85ac38064adbbd3c632099b13ece63cbe08242
+
+$ git rev-list --parents -n 1 HEAD
+9a85ac38064adbbd3c632099b13ece63cbe08242 766ef04730de91f3e5923437c4160db020297101 48a54b64a4310d4aea80a3d75e1189bb931f630a
+
+$ git ls-files -u
+
+$ git log --graph --oneline --all -n 8
+*   9a85ac3 merge: preserve both greetings and resolve the conflict
+|\  
+| * 48a54b6 feat: describe isolated development on feature
+* | 766ef04 feat: describe stable integration on main
+|/  
+* a74535b feat: complete the introductory Git lab greeting
+* f67e080 feat(): add autograding; doc(): add README.md
+* 5b71eff Initial commit
+
+$ gcc -std=c11 -Wall -Wextra -Werror main.c -o <task>/tmp/lab0-main.exe; run executable
+Main branch: keep a stable integration point.
+Feature branch: practice isolated development.

@@ -1,0 +1,11 @@
+{
+  "base": "f67e08038bd4593a0deabc625ec3ab6647935d0f",
+  "feature": "48a54b64a4310d4aea80a3d75e1189bb931f630a",
+  "main_before_merge": "766ef04730de91f3e5923437c4160db020297101",
+  "merge": "9a85ac38064adbbd3c632099b13ece63cbe08242",
+  "merge_parent_count": 2,
+  "unmerged_entries": 0,
+  "compiler_exit": 0,
+  "runtime_exit": 0,
+  "expected_output": "Main branch: keep a stable integration point.\nFeature branch: practice isolated development.\n"
+}

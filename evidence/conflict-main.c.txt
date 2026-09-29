@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main(void)
+{
+<<<<<<< HEAD
+    printf("Main branch: keep a stable integration point.\n");
+=======
+    printf("Feature branch: practice isolated development.\n");
+>>>>>>> feature
+    return 0;
+}
