@@ -3,6 +3,6 @@
 int main(void)
 {
     printf("Hello from main branch!\n");
-    printf("Feature branch: practice isolated development.\n");
+    printf("Hello from feature branch!\n");
     return 0;
 }
